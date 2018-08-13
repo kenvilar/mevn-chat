@@ -4,7 +4,7 @@ var favicon = require('serve-favicon')
 var logger = require('morgan')
 var bodyParser = require('body-parser')
 
-var room = require('./routes/rooom')
+var room = require('./routes/room')
 var chat = require('./routes/chat')
 var app = express()
 

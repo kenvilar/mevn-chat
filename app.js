@@ -3,19 +3,18 @@ var path = require('path')
 var favicon = require('serve-favicon')
 var logger = require('morgan')
 var bodyParser = require('body-parser')
-var mongoose = require('mongoose')
-mongoose.Promise = require('bluebird')
-mongoose.connect('mongodb://localhost:3000/', {
-  promiseLibrary: require('bluebird')
-}).then(() => {
-  console.log('connection successful')
-}).catch((err) => {
-  console.log(err)
-})
 
 var room = require('./routes/rooom')
 var chat = require('./routes/chat')
 var app = express()
+
+var mongoose = require('mongoose')
+mongoose.Promise = require('bluebird')
+mongoose.connect('mongodb://localhost:27017/mevn-chat', {
+  useNewUrlParser: true,
+  promiseLibrary: require('bluebird')
+}).then(() => console.log('connection successful'))
+  .catch((err) => console.error(err))
 
 app.use(logger('dev'))
 app.use(bodyParser.json())

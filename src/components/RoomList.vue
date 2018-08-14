@@ -57,7 +57,7 @@ export default {
   methods: {
     joinRoom (id) {
       this.$router.push({
-        name: 'JoinRoom',
+        name: 'join-room',
         params: { id: id }
       })
     }

@@ -12,7 +12,10 @@
                               :label-cols="4"
                               breakpoint="md"
                               label="Enter Room Name">
-                    <b-form-input id="room_name" :state="state" v-model.trim="room.room_name"></b-form-input>
+                    <b-form-input id="room_name"
+                                  :state="state"
+                                  v-model.trim="room.room_name"
+                    ></b-form-input>
                 </b-form-group>
                 <b-button type="submit" variant="primary">Save</b-button>
             </b-form>
@@ -35,13 +38,13 @@ export default {
       e.preventDefault()
       this.chat.room = this.$route.params.id
       this.chat.message = this.chat.nickname + ' join the room'
-      axios.post('//localhost:3000/api/chat', this.chat)
-        .then((response) => {
+      axios.post(`//localhost:3000/api/chat`, this.chat)
+        .then((res) => {
           this.$router.push({
-            name: 'ChatRoom',
+            name: 'room-list',
             params: {
               id: this.$route.params.id,
-              nickname: response.data.nickname
+              nickname: res.data.nickname
             }
           })
         })

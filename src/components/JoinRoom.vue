@@ -27,7 +27,7 @@ export default {
             created_date: new Date()
           })
           this.$router.push({
-            name: 'ChatRoom',
+            name: 'chat-room',
             params: {
               id: this.$route.params.id,
               nickname: res.data.nickname

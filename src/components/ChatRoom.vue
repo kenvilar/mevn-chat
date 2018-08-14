@@ -2,9 +2,9 @@
     <b-row>
         <b-col cols="12">
             <h2>
-                Chat Room
+                Chat Room - <b-btn size="sm" @click.stop="logout()">Logout</b-btn>
             </h2>
-            <b-list-group class="panel-body">
+            <b-list-group class="panel-body" v-chat-scroll>
                 <b-list-group-item v-for="(item, index) in chats" class="chat" :key="index">
                     <div class="left clearfix" v-if="item.nickname === nickname">
                         <b-img left src="http://placehold.it/50/55C1E7/fff&text=ME" rounded="circle" width="75"
@@ -90,7 +90,7 @@ export default {
         created_date: new Date()
       })
       this.$router.push({
-        name: 'RoomList'
+        name: 'room-list'
       })
     },
     onSubmit (e) {

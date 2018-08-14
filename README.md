@@ -1,6 +1,12 @@
 # mevn-chat
 
-> A Vue.js project
+> SocketIO Chat Application
+
+## Instructions for the app
+Run these commands
+```
+npm start
+```
 
 ## Build Setup
 

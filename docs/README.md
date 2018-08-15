@@ -13,6 +13,8 @@ Populate Room collection
 curl -i -X POST -H "Content-Type: application/json" -d '{ "room_name":"Javascript" }' localhost:3000/api/room
 ```
 
+Try to open the app in two different browsers for example Google Chrome and Firefox
+
 How to delete room
 ```
 curl -i -X DELETE http://localhost:3000/api/room/<id>   

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import HelloWorld from '@/components/HelloWorld'
 import RoomList from '@/components/RoomList'
 import AddRoom from '@/components/AddRoom'
 import JoinRoom from '@/components/JoinRoom'

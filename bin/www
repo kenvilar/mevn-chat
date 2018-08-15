@@ -53,7 +53,7 @@ function onError (error) {
   var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port
 
   switch (error.code) {
-    case 'EACCESS':
+    case 'EACCES':
       console.error(bind + ' requires elevated privileges')
       process.exit(1)
       // eslint-disable-next-line no-unreachable

@@ -36,9 +36,7 @@ export default {
   methods: {
     addRoom (e) {
       e.preventDefault()
-      this.chat.room = this.$route.params.id
-      this.chat.message = this.chat.nickname + ' join the room'
-      axios.post(`//localhost:3000/api/chat`, this.room)
+      axios.post(`//localhost:3000/api/room`, this.room)
         .then((res) => {
           this.$router.push({
             name: 'room-list'

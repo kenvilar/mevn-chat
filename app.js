@@ -3,6 +3,7 @@ var path = require('path')
 var favicon = require('serve-favicon')
 var logger = require('morgan')
 var bodyParser = require('body-parser')
+var createError = require('http-errors')
 
 var room = require('./routes/room')
 var chat = require('./routes/chat')
@@ -24,11 +25,9 @@ app.use('/rooms', express.static(path.join(__dirname, 'dist')))
 app.use('/api/room', room)
 app.use('/api/chat', chat)
 
-// this will catch 404 and forward to error handler
+// error handler
 app.use(function (req, res, next) {
-  var err = new Error('Not Found!')
-  err.status = 404
-  next(err)
+  next(createError(404))
 })
 
 // create error handler
@@ -37,7 +36,7 @@ app.use(function (err, req, res) {
   res.local.error = req.app.get('env') === 'development' ? err : {}
 
   res.status(err.status || 500)
-  res.render('error')
+  res.render(err.status)
 })
 
 module.exports = app

@@ -7,7 +7,7 @@
             </h2>
             <b-table striped hover :items="rooms" :fields="fields">
                 <template slot="actions" scope="row">
-                    <b-btn size="sm" @click.stop="joinRoom(row._id)">Join</b-btn>
+                    <b-btn size="sm" @click.stop="joinRoom(row.item._id)">Join</b-btn>
                 </template>
             </b-table>
             <ul v-if="errors && errors.length">
@@ -46,7 +46,7 @@ export default {
     }
   },
   created () {
-    axios.get('//localhost:3000/api/room')
+    axios.get(`//localhost:3000/api/room`)
       .then((res) => {
         this.rooms = res.data
       })
@@ -56,9 +56,12 @@ export default {
   },
   methods: {
     joinRoom (id) {
+      console.log(id)
       this.$router.push({
         name: 'join-room',
-        params: { id: id }
+        params: {
+          id: id
+        }
       })
     }
   }

@@ -20,10 +20,12 @@ io.on('connection', function (socket) {
 })
 
 // Get
-router.get('/', function (req, res, next) {
-  Chat.find(function (err, products) {
+router.get('/:roomid', function (req, res, next) {
+  Chat.find({
+    room: req.params.roomid
+  }, function (err, chats) {
     if (err) return next(err)
-    res.json(products)
+    res.json(chats)
   })
 })
 

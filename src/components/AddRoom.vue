@@ -38,14 +38,10 @@ export default {
       e.preventDefault()
       this.chat.room = this.$route.params.id
       this.chat.message = this.chat.nickname + ' join the room'
-      axios.post(`//localhost:3000/api/chat`, this.chat)
+      axios.post(`//localhost:3000/api/chat`, this.room)
         .then((res) => {
           this.$router.push({
-            name: 'room-list',
-            params: {
-              id: this.$route.params.id,
-              nickname: res.data.nickname
-            }
+            name: 'room-list'
           })
         })
         .catch((err) => {

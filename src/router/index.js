@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Test from '@/components/HelloWorld'
 import RoomList from '@/components/RoomList'
 import AddRoom from '@/components/AddRoom'
 import JoinRoom from '@/components/JoinRoom'
@@ -12,28 +12,28 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'RoomList',
+      name: 'room-list',
       component: RoomList
     },
     {
       path: '/add-room',
-      name: 'AddRoom',
+      name: 'add-room',
       component: AddRoom
     },
     {
       path: '/join-room/:id',
-      name: 'JoinRoom',
+      name: 'join-room',
       component: JoinRoom
     },
     {
       path: '/chat-room/:id/:nickname',
-      name: 'ChatRoom',
+      name: 'chat-room',
       component: ChatRoom
     },
     {
-      path: '/hello-world',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/test',
+      name: 'test',
+      component: Test
     }
   ]
 })

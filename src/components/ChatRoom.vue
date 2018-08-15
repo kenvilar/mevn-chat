@@ -67,7 +67,7 @@ export default {
     }
   },
   created () {
-    axios.get('//localhost:3000/api/chat/' + this.$route.params.id)
+    axios.get(`//localhost:3000/api/chat/` + this.$route.params.id)
       .then(res => {
         this.chats = res.data
       })
@@ -97,7 +97,7 @@ export default {
       e.preventDefault()
       this.chat.room = this.$route.params.id
       this.chat.nickname = this.$route.params.nickname
-      axios.post('//localhost:3000/api/chat', this.chat)
+      axios.post(`//localhost:3000/api/chat`, this.chat)
         .then(res => {
           this.socket.emit('save-message', res.data)
           this.chat.message = ''
